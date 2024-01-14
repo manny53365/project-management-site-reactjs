@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { projectAuth } from '../firebase/config'
+import { projectAuth, projectStorage } from '../firebase/config'
 import { useAuthContext } from './useAuthContext'
 
 export const useSignup = () => {
@@ -8,28 +8,30 @@ export const useSignup = () => {
   const [isPending, setIsPending] = useState(false)
   const { dispatch } = useAuthContext()
 
-  const signup = async (email, password, displayName) => {
-    setError(null)
-    setIsPending(true)
+  const signup = async (email, password, displayName, thumbnail) => {
+    setError(null);
+    setIsPending(true);
   
     try {
-      // signup
-      const res = await projectAuth.createUserWithEmailAndPassword(email, password)
+      const res = await projectAuth.createUserWithEmailAndPassword(email, password);
 
       if (!res) {
-        throw new Error('Could not complete signup')
-      }
+        throw new Error('Could not complete signup');
+      };
 
-      // add display name to user
-      await res.user.updateProfile({ displayName })
+      const uploadPath = `thumbnails/${res.user.uid}/${thumbnail.name}`;
+      
+      const img = await projectStorage.ref(uploadPath).put(thumbnail);
+      const imgUrl = await img.ref.getDownloadURL();
 
-      // dispatch login action
-      dispatch({ type: 'LOGIN', payload: res.user })
+      await res.user.updateProfile({ displayName, photoURL: imgUrl});
+
+      dispatch({ type: 'LOGIN', payload: res.user });
 
       if (!isCancelled) {
-        setIsPending(false)
-        setError(null)
-      }
+        setIsPending(false);
+        setError(null);
+      };
     } 
     catch(err) {
       if (!isCancelled) {
