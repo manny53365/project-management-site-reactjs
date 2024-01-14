@@ -75,7 +75,6 @@ export default function Signup() {
                 required
                 type="file"
                 onChange={handleFileChange}
-                // value={thumbnail}
                 />
                 {thumbnailError && <div className='error'>{thumbnailError}</div>}
             </label>
