@@ -30,7 +30,7 @@ export const useSignup = () => {
         online: true,
         displayName,
         photoURL: imgUrl
-      })
+      });
 
       dispatch({ type: 'LOGIN', payload: res.user });
 
