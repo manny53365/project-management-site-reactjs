@@ -22,7 +22,7 @@ export default function Dashboard() {
             case 'mine':
                 let assignedToMe = false;
                 document.assignedUsersList.forEach(u => {
-                    if (u.uid === user.id){
+                    if (u.id === user.uid){
                         assignedToMe = true;
                     }
                 })
