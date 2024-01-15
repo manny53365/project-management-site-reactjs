@@ -1,5 +1,4 @@
 import Avatar from '../../components/Avatar';
-import './Project.css';
 
 export default function ProjectSummary({ project }) {
     return (
