@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Signup.css';
 import { useSignup } from '../../hooks/useSignup';
 
@@ -10,19 +10,6 @@ export default function Signup() {
     const [thumbnail, setThumbnail] = useState(null);
     const [thumbnailError, setThumbnailError] = useState(null);
     const {signup, isPending, error} = useSignup();
-    const [isFieldsFilled, setIsFieldsFilled] = useState(false);
-
-    useEffect(() => {
-        const checkFieldsFilled = () => {
-            return email !== '' && 
-                   password !== '' && 
-                   displayName !== '' && 
-                   thumbnail !== null && 
-                   !thumbnailError;
-        };
-
-        setIsFieldsFilled(checkFieldsFilled());
-    }, [email, password, displayName, thumbnail, thumbnailError]);
 
     const handleFileChange = event => {
         setThumbnail(null);
@@ -37,8 +24,8 @@ export default function Signup() {
             setThumbnailError('Selected file must be an image');
             return;
         };
-        if (selectedImg.size > 5000000){
-            setThumbnailError('Image file size must be less than 5MB');
+        if (selectedImg.size > 100000){
+            setThumbnailError('Image file size must be less than 100kb');
             return;
         };
 
@@ -91,7 +78,7 @@ export default function Signup() {
                 />
                 {thumbnailError && <div className='error'>{thumbnailError}</div>}
             </label>
-            {!isPending && <button className='btn' disabled={!isFieldsFilled}>Sign up</button>}
+            {!isPending && <button className='btn'>Sign up</button>}
             {isPending && <button className='btn' disabled>Loading</button>}
             {error && <div className='error'>{error}</div>}
         </form>
