@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './Hamburger.css';
 
 export default function Hamburger() {
   return (
