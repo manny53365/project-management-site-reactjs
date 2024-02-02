@@ -29,3 +29,11 @@
   text-decoration: none;
   margin-right: 20px;
 }
+
+@media only screen and (max-width: 767px) {
+  .navbar {
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    width: 100%;
+  }
+}

@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       { authIsReady && (
         <BrowserRouter>
-          {user && <Sidebar/>}
+          {user && window.innerWidth > 767 && <Sidebar/>}
           <div className='container'>
             <Navbar/>
             <Switch>
@@ -46,7 +46,7 @@ function App() {
               </Route>
             </Switch>
           </div>
-          {user && <OnlineUsers />}
+          {user && window.innerWidth > 767 && <OnlineUsers />}
         </BrowserRouter>
       )}
     </div>

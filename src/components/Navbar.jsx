@@ -3,12 +3,20 @@ import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 import './Navbar.css';
-import Temple from '../assets/temple.svg'
+import Hamburger from './Hamburger';
+
+import Temple from '../assets/temple.svg';
+import { useState } from 'react';
 
 export default function Navbar() {
 
     const {logout, isPending} = useLogout();
     const {user} = useAuthContext();
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleHamburger = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
         <div className='navbar'>
@@ -30,6 +38,10 @@ export default function Navbar() {
                     </li>
                 )}
             </ul>
+
+            <div className='hamburger' onClick={toggleHamburger}>
+                <Hamburger />
+            </div>
         </div>
     )
 }

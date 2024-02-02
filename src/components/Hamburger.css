@@ -1,10 +1,10 @@
 .hamburger {
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    justify-content: space-between;
+    /* width: 2rem;
+    height: 2rem; */
+    display: none;
+    /* justify-content: space-between;
     flex-flow: column nowrap;
-    z-index: 2;
+    z-index: 2; */
 }
 
 .burger {
@@ -15,3 +15,22 @@
     transform-origin: 1;
     transition: all 0.3s linear;
 }
+
+/* mobile screen styles */
+
+@media only screen and (max-width: 767px) {
+    .hamburger {
+        display: fixed;
+        padding-top: 10px;
+        margin-left: 10px;
+        z-index: 2;
+    }
+}
+
+/* tablet screens styling */
+
+/* @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .loading-container {
+        margin: 50% auto;
+    }
+} */
