@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
-
-import './Navbar.css';
+import { useState } from 'react';
 import Hamburger from './Hamburger';
 
+import './Navbar.css';
+
 import Temple from '../assets/temple.svg';
-import { useState } from 'react';
 
 export default function Navbar() {
 
@@ -21,6 +21,7 @@ export default function Navbar() {
     return (
         <div className='navbar'>
             <ul>
+                <li><Hamburger onClick={toggleHamburger} isOpen={isOpen} /></li>
                 <li className='logo'>
                     <img src={Temple} alt="Logo" />
                     <span>Project Workshop</span>
@@ -39,9 +40,26 @@ export default function Navbar() {
                 )}
             </ul>
 
-            <div className='hamburger' onClick={toggleHamburger}>
-                <Hamburger />
-            </div>
+            {/* <div className='hamburger'>
+                <Hamburger onClick={toggleHamburger} />
+                {isOpen && (
+                    <div className="hamburger-links">
+                        <ul>
+                            <li className='logo'>
+                                <img src={Temple} alt="Logo" />
+                                <span>Project Workshop</span>
+                            </li>
+                            <li></li>
+                            {user && (
+                                <li>
+                                    {!isPending && <button className='btn' onClick={logout}>Logout</button>}
+                                    {isPending && <button className='btn' disabled>Logging out</button>}
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+                )}
+            </div> */}
         </div>
     )
 }
