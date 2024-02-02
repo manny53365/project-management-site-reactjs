@@ -2,8 +2,6 @@
     width: 2rem;
     height: 2rem;
     display: none;
-    /* justify-content: space-between;
-    flex-flow: column nowrap; */
     z-index: 2;
 }
 
@@ -22,8 +20,6 @@
     .hamburger {
         display: block;
         height: 30%;
-        /* padding-top: 10px;
-        margin-left: 10px; */
         z-index: 2;
     }
 
