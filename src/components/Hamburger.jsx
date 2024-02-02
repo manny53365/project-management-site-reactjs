@@ -10,7 +10,11 @@ export default function Hamburger({ onClick, isOpen }) {
             opacity: isOpen ? 0 : 1
         }}
         ></div>
-        <div className="burger burger3" style={{transform: isOpen ? 'rotate(-45deg)': 'rotate(0)'}}></div>
+        <div className="burger burger3" style={{
+            transform: isOpen ? 'rotate(-45deg)': 'rotate(0)',
+            marginTop: isOpen ? '-20px' : '0'
+        }}
+        ></div>
     </div>
   )
 };
