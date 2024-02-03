@@ -2,7 +2,9 @@ import './Hamburger.css';
 
 export default function Hamburger({ onClick, isOpen }) {
   return (
-    <div className='hamburger' onClick={onClick}>
+    <div className='hamburger' onClick={onClick} style={{
+        marginRight: isOpen ? '0' : '10px'
+    }}>
         <div className="burger burger1" style={{
             transform: isOpen ? 'rotate(45deg)' : 'rotate(0)'
         }}
