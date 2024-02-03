@@ -46,7 +46,9 @@
   filter: invert(40%);
 }
 
-@media only screen and (max-width: 767px) {
+/* styles for mobile, tablet or small desktops */
+
+@media only screen and (max-width: 1024px) {
   .sidebar {
     display: flex;
     flex-direction: column;
