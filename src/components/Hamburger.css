@@ -20,7 +20,8 @@
     .hamburger {
         display: block;
         margin-right: 10px;
-        z-index: inherit;
+        position: relative;
+        z-index: 101;
     }
 
     .burger {
