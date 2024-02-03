@@ -71,3 +71,21 @@
   color: var(--text-color);
   font-size: 0.9em;
 }
+
+@media only screen and (max-width: 767px) {
+  .project-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-details button {
+    width: 100%;
+  }
+
+  .project-comments, .project-summary-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  
+}

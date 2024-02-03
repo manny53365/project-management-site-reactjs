@@ -1,0 +1,40 @@
+.hamburger {
+    width: 2rem;
+    height: 2rem;
+    display: none;
+    z-index: 2;
+}
+
+.burger {
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: 10px;
+    background-color: #000000;
+    transform-origin: 1;
+    transition: all 0.3s linear;
+}
+
+/* mobile screen styles */
+
+@media only screen and (max-width: 767px) {
+    .hamburger {
+        display: block;
+        position: relative;
+        z-index: 101;
+    }
+
+    .burger {
+        height: 0.5rem;
+        width: 2rem;
+        margin: 2px 0;
+        z-index: 101;
+    }
+}
+
+/* tablet screens styling */
+
+/* @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .loading-container {
+        margin: 50% auto;
+    }
+} */
