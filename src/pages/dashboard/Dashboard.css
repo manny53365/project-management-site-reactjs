@@ -43,11 +43,13 @@
   }
 
   .project-filter button {
-    width: 30%;
+    width: 50%;
+    border: 0;
   }
 
   .project-filter p {
     width: 100%;
     text-align: center;
   }
+
 }
