@@ -9,7 +9,7 @@
     width: 2rem;
     height: 0.25rem;
     border-radius: 10px;
-    background-color: var(--primary-color);
+    background-color: #000000;
     transform-origin: 1;
     transition: all 0.3s linear;
 }
@@ -20,12 +20,14 @@
     .hamburger {
         display: block;
         margin-right: 10px;
+        z-index: inherit;
     }
 
     .burger {
         height: 0.5rem;
         width: 2rem;
         margin: 2px 0;
+        z-index: 101;
     }
 }
 

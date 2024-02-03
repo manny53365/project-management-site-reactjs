@@ -3,6 +3,7 @@ import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useState } from 'react';
 import Hamburger from './Hamburger';
+import Sidebar from './Sidebar';
 
 import './Navbar.css';
 
@@ -21,45 +22,31 @@ export default function Navbar() {
     return (
         <div className='navbar'>
             <ul>
-                <li><Hamburger onClick={toggleHamburger} isOpen={isOpen} /></li>
-                <li className='logo'>
+                <li>
+                    <Hamburger onClick={toggleHamburger} isOpen={isOpen} />
+                    {isOpen && (
+                        <div className='hamburger-menu' onClick={toggleHamburger}>
+                            <Sidebar />
+                        </div>
+                    )}
+                </li>
+                {!isOpen && <li className='logo'>
                     <img src={Temple} alt="Logo" />
                     <span>Project Workshop</span>
-                </li>
+                </li>}
                 {!user && (
                     <>
                         <li><Link to='/login'>Login</Link></li>
                         <li><Link to='/signup'>Sign Up</Link></li>
                     </>
                 )}
-                {user && (
+                {user && !isOpen && (
                     <li>
                         {!isPending && <button className='btn' onClick={logout}>Logout</button>}
                         {isPending && <button className='btn' disabled>Logging out</button>}
                     </li>
                 )}
             </ul>
-
-            {/* <div className='hamburger'>
-                <Hamburger onClick={toggleHamburger} />
-                {isOpen && (
-                    <div className="hamburger-links">
-                        <ul>
-                            <li className='logo'>
-                                <img src={Temple} alt="Logo" />
-                                <span>Project Workshop</span>
-                            </li>
-                            <li></li>
-                            {user && (
-                                <li>
-                                    {!isPending && <button className='btn' onClick={logout}>Logout</button>}
-                                    {isPending && <button className='btn' disabled>Logging out</button>}
-                                </li>
-                            )}
-                        </ul>
-                    </div>
-                )}
-            </div> */}
         </div>
     )
 }
