@@ -22,14 +22,14 @@ export default function Navbar() {
     return (
         <div className='navbar'>
             <ul>
-                <li>
+                {user && <li>
                     <Hamburger onClick={toggleHamburger} isOpen={isOpen} />
                     {isOpen && (
                         <div className='hamburger-menu' onClick={toggleHamburger}>
                             <Sidebar />
                         </div>
                     )}
-                </li>
+                </li>}
                 {!isOpen && <li className='logo'>
                     <img src={Temple} alt="Logo" />
                     <span>Project Workshop</span>
