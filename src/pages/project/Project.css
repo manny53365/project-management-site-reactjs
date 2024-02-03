@@ -73,9 +73,19 @@
 }
 
 @media only screen and (max-width: 767px) {
-  /* .project-details {
+  .project-details {
     display: flex;
-    width: 100%
-  } */
+    flex-direction: column;
+  }
+
+  .project-details button {
+    width: 100%;
+  }
+
+  .project-comments, .project-summary-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
   
 }
