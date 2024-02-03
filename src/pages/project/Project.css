@@ -95,9 +95,10 @@
 
 /* tablet or small desktop styles */
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .project-details {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
   }
 }
